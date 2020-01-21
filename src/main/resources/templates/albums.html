@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<h1>Albums</h1>
+<ul>
+    <li th:each="album : ${rapAlbums}">
+        <span th:text="${album}"></span>
+<!--        <span th:text="${album}"></span>-->
+<!--        <span th:text="${album}"></span>-->
+
+    </li>
+</ul>
+</body>
+</html>
