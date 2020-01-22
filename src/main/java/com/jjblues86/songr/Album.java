@@ -1,6 +1,16 @@
 package com.jjblues86.songr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity//this enables us to make a table
 public class Album {
+
+    @Id//id makes it the primary key of the table
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//serial id
+    Long id;
 
     private String title;
     private String artist;
@@ -14,6 +24,11 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imageUrl = imageUrl;
+    }
+
+    //add a default constructor
+    public Album(){
+
     }
 
     public String toString(){
