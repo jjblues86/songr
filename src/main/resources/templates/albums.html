@@ -10,11 +10,25 @@
 <h1>Albums</h1>
 <ul>
     <li th:each="album : ${rapAlbums}">
-        <span th:text="${album}"></span>
-<!--        <span th:text="${album}"></span>-->
+        title: <span th:text="${album.title}"></span>
+        artist: <span th:text="${album.artist}"></span>
+        songCount: <span th:text="${album.songCount}"></span>
+        length: <span th:text="${album.length}"></span>
+        imageUrl: <span th:text="${album.imageUrl}"></span>
+
+        <!--        <span th:text="${album}"></span>-->
 <!--        <span th:text="${album}"></span>-->
 
     </li>
 </ul>
+
+<form action="/albums" method="post">
+    title: <input type="text" name="title">
+    artist: <input type="text" name="artist">
+    songCount: <input type="text" name="songCount">
+    length: <input type="text" name="length">
+    imageUrl: <input type="text" name="imageUrl">
+    <input type="submit">
+</form>
 </body>
 </html>

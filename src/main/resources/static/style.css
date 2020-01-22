@@ -9,3 +9,11 @@ text-align: center;
 li{
 text-align: center;
 }
+
+ul{
+list-style-type: none;
+}
+
+body{
+color: white;
+}
