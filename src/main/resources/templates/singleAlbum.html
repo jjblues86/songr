@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+</head>
+<body>
+<h1 th:text="${album.title}"></h1>
+<img th:src="${album.imageUrl}">
+<div th:each="song: ${album.songCount}">
+    <h3 th:text="'Track ' + ${song.trackNumber} + ' : ' + ${song.title}"></h3>
+</div>
+
+
+</body>
+</html>

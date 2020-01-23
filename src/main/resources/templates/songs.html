@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Song</title>
+</head>
+<body>
+<h1>Every Song</h1>
+<div th:each="song: ${songs}">
+    <h3 th:text="${song.title}"></h3>
+</div>
+
+
+</body>
+</html>
