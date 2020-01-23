@@ -1,16 +1,22 @@
 package com.jjblues86.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity//this enables us to make a table
 public class Album {
 
+
+    public Long getId() {
+        return id;
+    }
+
     @Id//id makes it the primary key of the table
     @GeneratedValue(strategy = GenerationType.IDENTITY)//serial id
     Long id;
+
+    @OneToMany(mappedBy = "album")
+    public List<Song> songList;
 
     private String title;
     private String artist;
@@ -74,4 +80,5 @@ public class Album {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
 }

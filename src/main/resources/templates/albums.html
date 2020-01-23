@@ -8,20 +8,36 @@
 </head>
 <body>
 <h1>Albums</h1>
-<ul>
-    <li th:each="album : ${rapAlbums}">
+    <div th:each="album : ${rapAlbums}">
+
+        <form th:action="@{/albums}" th:method="put">
         title: <span th:text="${album.title}"></span>
         artist: <span th:text="${album.artist}"></span>
         songCount: <span th:text="${album.songCount}"></span>
         length: <span th:text="${album.length}"></span>
-        imageUrl: <span th:text="${album.imageUrl}"></span>
+        imageUrl: <img th:src="${album.imageUrl}">
+        <button>Update</button>
+        </form>
+            <form th:action="'/albums/delete/' + ${album.id}" method="POST">
+<!--                <input type="hidden" name="_method" value="POST"/>-->
+            <button type="submit">DELETE ALBUM</button>
+        </form>
 
-        <!--        <span th:text="${album}"></span>-->
-<!--        <span th:text="${album}"></span>-->
+        <h2>Add Songs</h2>
 
-    </li>
-</ul>
+        <form method="post" th:action="'/albums/' + ${album.id} + '/songs'">
+            <!--    <input type="hidden" th:value="${album.id}">-->
+            title: <input type="text" name="title">
+<!--            artist: <input type="text" name="artist">-->
+            length: <input type="text" name="length">
+            trackNumber: <input type="text" name="trackNumber">
+            <input type="submit">
+            <a href="songs">Song Details</a>
+        </form>
+    </div>
 
+
+<fieldset>
 <form action="/albums" method="post">
     title: <input type="text" name="title">
     artist: <input type="text" name="artist">
@@ -30,5 +46,7 @@
     imageUrl: <input type="text" name="imageUrl">
     <input type="submit">
 </form>
+
+</fieldset>
 </body>
 </html>
